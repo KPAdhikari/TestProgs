@@ -1,11 +1,21 @@
-//kp: Example copied from https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html (12/5/16)
+/*
+ Compile: javac LocalClassExample.java
+ Run:     java  LocalClassExample
+
+
+  kp: Example copied from https://docs.oracle.com/javase/tutorial/java/javaOO/localclasses.html (12/5/16)
+
+  You can define a local class inside any block (see Expressions, Statements, and Blocks for more information). For example, you can define a local class in a method body, a for loop, or an if clause.
+
+  The following example, LocalClassExample, validates two phone numbers. It defines the local class PhoneNumber in the method validatePhoneNumber:
+*/
 
 public class LocalClassExample {
   
     static String regularExpression = "[^0-9]";
   
-    public static void validatePhoneNumber(
-        String phoneNumber1, String phoneNumber2) {
+    public static void validatePhoneNumber(String phoneNumber1,
+					   String phoneNumber2) {
       
         final int numberLength = 10;
         
@@ -19,8 +29,7 @@ public class LocalClassExample {
 
             PhoneNumber(String phoneNumber){
                 // numberLength = 7;
-                String currentNumber = phoneNumber.replaceAll(
-                  regularExpression, "");
+                String currentNumber = phoneNumber.replaceAll(regularExpression, "");
                 if (currentNumber.length() == numberLength)
                     formattedPhoneNumber = currentNumber;
                 else
@@ -33,10 +42,10 @@ public class LocalClassExample {
             
             // Valid in JDK 8 and later:
 
-//            public void printOriginalNumbers() {
-//                System.out.println("Original numbers are " + phoneNumber1 +
-//                    " and " + phoneNumber2);
-//            }
+	    //            public void printOriginalNumbers() {
+	    //                System.out.println("Original numbers are " + phoneNumber1 +
+	    //                    " and " + phoneNumber2);
+	    //            }
         }
 
         PhoneNumber myNumber1 = new PhoneNumber(phoneNumber1);
@@ -44,7 +53,7 @@ public class LocalClassExample {
         
         // Valid in JDK 8 and later:
 
-//        myNumber1.printOriginalNumbers();
+	//        myNumber1.printOriginalNumbers();
 
         if (myNumber1.getNumber() == null) 
             System.out.println("First number is invalid");
